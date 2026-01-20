@@ -5,37 +5,59 @@ export const services = [
     id: 1,
     name: 'Marketing',
     description: 'Estrategias creativas que conectan tu marca con el mundo de manera sostenible.',
-    icon: 'TrendingUp'
+    icon: 'https://customer-assets.emergentagent.com/job_eco-creative-hub/artifacts/9ds44vey_Marketing.svg'
   },
   {
     id: 2,
     name: 'Branding',
     description: 'Construimos identidades de marca únicas que reflejan tus valores y visión.',
-    icon: 'Palette'
+    icon: 'https://customer-assets.emergentagent.com/job_eco-creative-hub/artifacts/u45j3e3x_branding.svg'
   },
   {
     id: 3,
     name: 'Designing UX/UI',
     description: 'Experiencias digitales intuitivas que cautivan a tus usuarios.',
-    icon: 'Layout'
+    icon: 'https://customer-assets.emergentagent.com/job_eco-creative-hub/artifacts/9a840u6q_Design_UX_UI.svg'
   },
   {
     id: 4,
     name: 'Printing',
     description: 'Impresiones de alta calidad con materiales eco-amigables.',
-    icon: 'Printer'
+    icon: 'https://customer-assets.emergentagent.com/job_eco-creative-hub/artifacts/7aixfn6j_Printing.svg'
   },
   {
     id: 5,
     name: 'Packing',
     description: 'Packaging sostenible que cuenta la historia de tu producto.',
-    icon: 'Package'
+    icon: 'https://customer-assets.emergentagent.com/job_eco-creative-hub/artifacts/wwnhnunb_Packing.svg'
   },
   {
     id: 6,
     name: 'Book making',
     description: 'Libros y publicaciones diseñados con pasión y creatividad.',
-    icon: 'BookOpen'
+    icon: 'https://customer-assets.emergentagent.com/job_eco-creative-hub/artifacts/3kycqgib_book%20making.svg'
+  }
+];
+
+export const heroSlides = [
+  {
+    id: 1,
+    image: 'https://customer-assets.emergentagent.com/job_eco-creative-hub/artifacts/h8nkkfej_Banner_inicio_01.png',
+    title: 'Amamos lo que hacemos',
+    subtitle: ''
+  },
+  {
+    id: 2,
+    image: 'https://customer-assets.emergentagent.com/job_eco-creative-hub/artifacts/5689kc2v_Banner_inicio_02.png',
+    title: 'Agencia creativa y medios publicitarios',
+    subtitle: ''
+  },
+  {
+    id: 3,
+    image: 'https://customer-assets.emergentagent.com/job_eco-creative-hub/artifacts/8n6e66wn_Banner_inicio_03.png',
+    title: 'Impactamos los medios',
+    titleLine2: 'sin impactar el ambiente',
+    subtitle: ''
   }
 ];
 
@@ -121,6 +143,54 @@ export const companyHistory = {
   
   Hoy, después de más de 6 años de trayectoria, hemos ayudado a más de 150 marcas a comunicar sus valores de manera auténtica y sostenible, demostrando que la efectividad y la responsabilidad ambiental pueden ir de la mano.`
 };
+
+export const testimonials = [
+  {
+    id: 1,
+    name: 'María González',
+    position: 'Directora de Marketing',
+    company: 'EcoNatura Foods',
+    logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=100&q=80',
+    quote: 'Biofilia transformó completamente nuestra imagen de marca. Las ventas aumentaron un 45% después del rebranding y nuestra conexión con el público se fortaleció enormemente.',
+    result: '+45% en ventas'
+  },
+  {
+    id: 2,
+    name: 'Carlos Rodríguez',
+    position: 'CEO',
+    company: 'Verde Packaging',
+    logo: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=100&q=80',
+    quote: 'El packaging que diseñaron no solo es hermoso sino 100% sostenible. Nuestros clientes lo aman y nos diferencia en el mercado. Excelente trabajo de principio a fin.',
+    result: '100% sostenible'
+  },
+  {
+    id: 3,
+    name: 'Ana Martínez',
+    position: 'Fundadora',
+    company: 'BioCosmetics Lab',
+    logo: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=100&q=80',
+    quote: 'La campaña de marketing superó todas nuestras expectativas. El equipo de Biofilia entendió perfectamente nuestra visión y la comunicaron de manera impactante.',
+    result: '+200% engagement'
+  }
+];
+
+export const valuePropositions = [
+  {
+    id: 1,
+    title: 'Eficiencia Sostenible = Rentabilidad',
+    description: 'Ahorro de costos y optimización de recursos en el uso de materiales y procesos de creación.'
+  },
+  {
+    id: 2,
+    title: 'Blindaje de marca y lealtad del consumidor actual',
+    description: 'Cualquiera que sea tu proyecto generaremos una lealtad superior a la de la competencia, permitiéndote destacar en mercados saturados y justificar un posicionamiento de mayor valor.'
+  },
+  {
+    id: 3,
+    title: 'Soluciones "Todo en Uno"',
+    description: 'Ahorro de tiempo y consistencia impecable. Olvídate de coordinar con múltiples proveedores que diluyen tu mensaje. En Biofilia Cocreativa unificamos desde la idea, la pasión y resultado final.'
+  }
+];
 
 export const socialLinks = [
   { id: 'fb', label: 'FB', icon: 'Facebook', url: '#' },
