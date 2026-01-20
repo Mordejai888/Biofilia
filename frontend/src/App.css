@@ -3,56 +3,56 @@
 /* Neulis Sans Font */
 @font-face {
   font-family: 'Neulis';
-  src: url('/fonts/Neulis-ExtraLight.otf') format('opentype');
+  src: url('./assets/fonts/Neulis-ExtraLight.otf') format('opentype');
   font-weight: 200;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Neulis';
-  src: url('/fonts/Neulis-ExtraLightItalic.otf') format('opentype');
+  src: url('./assets/fonts/Neulis-ExtraLightItalic.otf') format('opentype');
   font-weight: 200;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Neulis';
-  src: url('/fonts/Neulis-Bold.otf') format('opentype');
+  src: url('./assets/fonts/Neulis-Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Neulis';
-  src: url('/fonts/Neulis-BoldItalic.otf') format('opentype');
+  src: url('./assets/fonts/Neulis-BoldItalic.otf') format('opentype');
   font-weight: 700;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Neulis';
-  src: url('/fonts/Neulis-ExtraBold.otf') format('opentype');
+  src: url('./assets/fonts/Neulis-ExtraBold.otf') format('opentype');
   font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Neulis';
-  src: url('/fonts/Neulis-ExtraBoldItalic.otf') format('opentype');
+  src: url('./assets/fonts/Neulis-ExtraBoldItalic.otf') format('opentype');
   font-weight: 800;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Neulis';
-  src: url('/fonts/Neulis-Black.otf') format('opentype');
+  src: url('./assets/fonts/Neulis-Black.otf') format('opentype');
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Neulis';
-  src: url('/fonts/Neulis-BlackItalic.otf') format('opentype');
+  src: url('./assets/fonts/Neulis-BlackItalic.otf') format('opentype');
   font-weight: 900;
   font-style: italic;
 }
@@ -262,6 +262,12 @@ textarea:focus {
 }
 
 .service-card:hover .service-icon {
+  filter: brightness(0) saturate(100%) invert(52%) sepia(82%) saturate(456%) hue-rotate(70deg) brightness(96%) contrast(93%);
+  transform: scale(1.1);
+}
+
+/* Group hover for service items */
+.group:hover .service-icon {
   filter: brightness(0) saturate(100%) invert(52%) sepia(82%) saturate(456%) hue-rotate(70deg) brightness(96%) contrast(93%);
   transform: scale(1.1);
 }
