@@ -1,60 +1,74 @@
 /* Biofilia CoCreativa - Custom Styles */
 
-/* Neulis Sans Font */
+/* Neulis Sans Font - Geometric Sans Serif */
 @font-face {
-  font-family: 'Neulis';
-  src: url('./assets/fonts/Neulis-ExtraLight.otf') format('opentype');
+  font-family: 'Neulis Sans';
+  src: url('./assets/fonts/neulis-sans-hairline.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neulis Sans';
+  src: url('./assets/fonts/neulis-sans-thin.otf') format('opentype');
   font-weight: 200;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Neulis';
-  src: url('./assets/fonts/Neulis-ExtraLightItalic.otf') format('opentype');
-  font-weight: 200;
-  font-style: italic;
+  font-family: 'Neulis Sans';
+  src: url('./assets/fonts/neulis-sans-extralight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'Neulis';
-  src: url('./assets/fonts/Neulis-Bold.otf') format('opentype');
+  font-family: 'Neulis Sans';
+  src: url('./assets/fonts/neulis-sans-light.otf') format('opentype');
+  font-weight: 350;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neulis Sans';
+  src: url('./assets/fonts/neulis-sans.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neulis Sans';
+  src: url('./assets/fonts/neulis-sans-medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neulis Sans';
+  src: url('./assets/fonts/neulis-sans-semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neulis Sans';
+  src: url('./assets/fonts/neulis-sans-bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Neulis';
-  src: url('./assets/fonts/Neulis-BoldItalic.otf') format('opentype');
-  font-weight: 700;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Neulis';
-  src: url('./assets/fonts/Neulis-ExtraBold.otf') format('opentype');
+  font-family: 'Neulis Sans';
+  src: url('./assets/fonts/neulis-sans-extrabold.otf') format('opentype');
   font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Neulis';
-  src: url('./assets/fonts/Neulis-ExtraBoldItalic.otf') format('opentype');
-  font-weight: 800;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Neulis';
-  src: url('./assets/fonts/Neulis-Black.otf') format('opentype');
+  font-family: 'Neulis Sans';
+  src: url('./assets/fonts/neulis-sans-black.otf') format('opentype');
   font-weight: 900;
   font-style: normal;
-}
-
-@font-face {
-  font-family: 'Neulis';
-  src: url('./assets/fonts/Neulis-BlackItalic.otf') format('opentype');
-  font-weight: 900;
-  font-style: italic;
 }
 
 /* Root Variables */
@@ -73,7 +87,7 @@
 }
 
 body {
-  font-family: 'Neulis', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-family: 'Neulis Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--biofilia-black);
