@@ -174,7 +174,7 @@ export const testimonials = [
     position: 'Gerente de ventas Nacional',
     company: 'Snap-on',
     service: 'Printing',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Snap-on_logo.svg/200px-Snap-on_logo.svg.png',
+    logo: '/logos/snap-on-industrial-logo-new-23.png',
     quote: 'Sus servicios de impresión y diseño que requerimos son de excelente calidad. El equipo de Biofilia entiende nuestras necesidades y siempre entrega resultados impecables.'
   },
   {
@@ -183,7 +183,7 @@ export const testimonials = [
     position: 'CEO',
     company: 'Consegroup',
     service: 'Design UX/UI',
-    logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=100&q=80',
+    logo: '/logos/logo.svg',
     quote: 'Rediseñaron nuestra página web, captaron la idea y concepto que necesitaba. El resultado superó todas nuestras expectativas.'
   },
   {
@@ -210,7 +210,7 @@ export const testimonials = [
     position: 'Sales Manager',
     company: 'SNA Europe',
     service: 'Packing',
-    logo: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=100&q=80',
+    logo: '/logos/imgi_3_SNAEuropeLogo.141d0db4.svg',
     quote: 'Teníamos la urgencia de introducir un producto al mercado y su propuesta de empaque le dio valor a nuestra promoción de lanzamiento, lo felicito el resultado fue increíble.'
   },
   {
@@ -246,19 +246,23 @@ export const valuePropositions = [
 ];
 
 export const clientLogos = [
-  { id: 1, name: 'Snap-on', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Snap-on_logo.svg/200px-Snap-on_logo.svg.png' },
-  { id: 2, name: 'Ford', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Ford_logo_flat.svg/200px-Ford_logo_flat.svg.png' },
-  { id: 3, name: 'Eventifypro', logo: '/logos/logo_EP.png' },
-  { id: 4, name: 'Ferretrade', logo: '/logos/logo-color.jpg' },
-  { id: 5, name: 'Tortilleria Mazal', logo: '/logos/TORTILLERIA-MAZAL.png' },
-  { id: 6, name: 'Flamingo Roft', logo: '/logos/Flamingo.png' }
+  { id: 1, name: 'Snap-on', logo: '/logos/snap-on-industrial-logo-new-23.png' },
+  { id: 2, name: 'SNA Europe', logo: '/logos/imgi_3_SNAEuropeLogo.141d0db4.svg' },
+  { id: 3, name: 'Bahco', logo: '/logos/imgi_26_logo-bahco.png' },
+  { id: 4, name: 'Eventifypro', logo: '/logos/logo_EP.png' },
+  { id: 5, name: 'Ferretrade', logo: '/logos/logo-color.jpg' },
+  { id: 6, name: 'Tortilleria Mazal', logo: '/logos/TORTILLERIA-MAZAL.png' },
+  { id: 7, name: 'Flamingo Roft', logo: '/logos/Flamingo.png' },
+  { id: 8, name: 'Consegroup', logo: '/logos/logo.svg' }
 ];
 
 export const partnerLogos = [
-  { id: 1, name: 'Adobe', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Adobe_Corporate_Logo.svg/200px-Adobe_Corporate_Logo.svg.png' },
-  { id: 2, name: 'Affinity', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Affinity_Designer_V2_icon.svg/100px-Affinity_Designer_V2_icon.svg.png' },
-  { id: 3, name: 'Google Partner', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/200px-Google_2015_logo.svg.png' },
-  { id: 4, name: 'Meta Blueprint', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/200px-Meta_Platforms_Inc._logo.svg.png' }
+  { id: 1, name: 'Adobe', logo: '/logos/descarga.png' },
+  { id: 2, name: 'Affinity', logo: '/logos/Affinity_(App)_Logo.svg.png' },
+  { id: 3, name: 'Google Partner', logo: '/logos/Google-Partner.png' },
+  { id: 4, name: 'HubSpot', logo: '/logos/Hubspot-1024x300.png' },
+  { id: 5, name: 'Meta', logo: '/logos/media_1e1d6ce6caa68dfd49689c46528c152d9fdeaad6f.jpg' },
+  { id: 6, name: 'Stripe', logo: '/logos/Stripe_icon.png' }
 ];
 
 export const socialLinks = [
