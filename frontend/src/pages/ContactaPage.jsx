@@ -63,7 +63,11 @@ const ContactaPage = () => {
       
       <main className="flex-1 py-12">
         <div className="max-w-4xl mx-auto px-6">
-          <form onSubmit={handleSubmit} className="space-y-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-biofilia-black mb-8 text-center">
+            Contáctanos
+          </h1>
+          
+          <form onSubmit={handleSubmit} className="space-y-6">
             {/* Nombre */}
             <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
               <label className="font-bold text-biofilia-black min-w-[180px]">
@@ -98,13 +102,13 @@ const ContactaPage = () => {
               <label className="font-bold text-biofilia-black min-w-[180px]">
                 Teléfono
               </label>
-              <div className="flex flex-1 items-center gap-4">
+              <div className="flex flex-1 flex-wrap items-center gap-4">
                 <Input
                   type="tel"
                   name="telefono"
                   value={formData.telefono}
                   onChange={handleInputChange}
-                  className="flex-1 max-w-[200px] border-biofilia-black/30 rounded-full focus:border-biofilia-green focus:ring-biofilia-green"
+                  className="flex-1 min-w-[150px] max-w-[200px] border-biofilia-black/30 rounded-full focus:border-biofilia-green focus:ring-biofilia-green"
                 />
                 <div className="flex items-center gap-2">
                   <span className="text-biofilia-black">Fijo</span>
@@ -156,7 +160,7 @@ const ContactaPage = () => {
               <p className="font-bold text-biofilia-black mb-2">
                 ¿Qué servicio principal te interesa? <span className="font-normal text-biofilia-black/60">(Marca todo lo que aplique)</span>
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
                 {contactFormFields.services.map((service) => (
                   <div key={service.id} className="flex items-center gap-3">
                     <span className="text-biofilia-black font-medium">{service.label}</span>
@@ -172,17 +176,15 @@ const ContactaPage = () => {
 
             {/* Descripción */}
             <div>
-              <p className="font-bold text-biofilia-black mb-1">
-                Cuéntanos brevemente sobre tu negocio:
-              </p>
-              <p className="text-biofilia-black/60 italic mb-4 text-sm">
-                ¿A qué se dedican y qué problema resuelven?
+              <p className="font-bold text-biofilia-black mb-4">
+                Cuéntanos brevemente sobre tu proyecto:
               </p>
               <Textarea
                 name="descripcion"
                 value={formData.descripcion}
                 onChange={handleInputChange}
-                rows={6}
+                rows={5}
+                placeholder="Describe tu proyecto o necesidad..."
                 className="w-full border-biofilia-black/30 rounded-xl focus:border-biofilia-green focus:ring-biofilia-green resize-none"
               />
             </div>
