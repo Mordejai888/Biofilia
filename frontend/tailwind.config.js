@@ -8,7 +8,7 @@ module.exports = {
   theme: {
   	extend: {
   		fontFamily: {
-  			sans: ['Neulis', 'DM Sans', 'system-ui', 'sans-serif'],
+  			sans: ['Neulis Sans', 'DM Sans', 'system-ui', 'sans-serif'],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
