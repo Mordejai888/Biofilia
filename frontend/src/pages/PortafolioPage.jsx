@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import { portfolioItems, services, clientLogos, partnerLogos } from '../data/mock';
@@ -135,14 +135,14 @@ const PortafolioPage = () => {
             
             <div 
               ref={scrollRef}
-              className="flex gap-12 overflow-x-hidden"
+              className="flex gap-12 overflow-x-hidden py-4"
               style={{ scrollBehavior: 'auto' }}
             >
               {/* Duplicate logos for infinite scroll effect */}
               {[...clientLogos, ...clientLogos].map((client, index) => (
                 <div 
                   key={`${client.id}-${index}`}
-                  className="flex-shrink-0 w-32 h-20 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+                  className="flex-shrink-0 w-36 h-24 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 bg-white rounded-lg p-4 shadow-sm"
                 >
                   <img 
                     src={client.logo}
@@ -155,18 +155,14 @@ const PortafolioPage = () => {
           </div>
         </section>
 
-        {/* Partner Logos */}
+        {/* Partners/Logos Section */}
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-biofilia-black text-center mb-12">
-              Partners tecnológicos
-            </h2>
-            
-            <div className="flex flex-wrap justify-center gap-12">
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
               {partnerLogos.map((partner) => (
                 <div 
                   key={partner.id}
-                  className="w-28 h-16 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+                  className="w-24 md:w-32 h-16 md:h-20 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
                 >
                   <img 
                     src={partner.logo}
