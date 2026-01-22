@@ -18,12 +18,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Social Links */}
           <div className="flex flex-col gap-3">
+            <h4 className="font-bold text-biofilia-black mb-2">Síguenos</h4>
             {socialLinks.map((social) => {
               const IconComponent = iconMap[social.icon];
               return (
                 <a
                   key={social.id}
                   href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 text-biofilia-black hover:text-biofilia-green transition-colors duration-300 group"
                 >
                   <span className="font-semibold text-sm w-8">{social.label}</span>
@@ -35,9 +38,10 @@ const Footer = () => {
 
           {/* Location & Navigation */}
           <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-2 text-biofilia-green mb-2">
-              <MapPin className="w-5 h-5" />
-            </div>
+            <h4 className="font-bold text-biofilia-black mb-2 flex items-center gap-2">
+              <MapPin className="w-5 h-5 text-biofilia-green" />
+              Navegación
+            </h4>
             {footerLinks.navigation.map((link) => (
               <Link
                 key={link.path}
@@ -49,16 +53,21 @@ const Footer = () => {
             ))}
           </div>
 
-          {/* Empty space for balance */}
-          <div className="hidden md:block" />
+          {/* Tagline */}
+          <div className="flex flex-col justify-center">
+            <p className="text-sm text-biofilia-black/70 leading-relaxed italic">
+              En Biofilia Cocreativa, cada proyecto es una oportunidad para cocrear un futuro más verde.
+            </p>
+          </div>
 
           {/* Legal Links */}
-          <div className="flex flex-col gap-2 text-right">
+          <div className="flex flex-col gap-2">
+            <h4 className="font-bold text-biofilia-black mb-2">Legal</h4>
             {footerLinks.legal.map((link) => (
               <Link
                 key={link.label}
                 to={link.path}
-                className="text-biofilia-black hover:text-biofilia-green transition-colors duration-300 text-sm"
+                className="text-biofilia-black/70 hover:text-biofilia-green transition-colors duration-300 text-sm"
               >
                 {link.label}
               </Link>
@@ -70,7 +79,7 @@ const Footer = () => {
       {/* Copyright */}
       <div className="border-t border-gray-100 py-4">
         <p className="text-center text-sm text-biofilia-black/70">
-          ©2025 Biofilia Todos los derechos reservados.
+          ©2025 Biofilia Cocreativa. Todos los derechos reservados.
         </p>
       </div>
     </footer>
