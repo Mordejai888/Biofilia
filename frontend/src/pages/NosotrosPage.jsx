@@ -1,14 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
-import { companyHistory, companyValues } from '../data/mock';
-import { Sparkles, Leaf, Lightbulb, Users } from 'lucide-react';
+import { companyInfo, companyValues } from '../data/mock';
+import { Sparkles, Leaf, Users, Shield, ArrowRight } from 'lucide-react';
 
 const iconMap = {
   Sparkles: Sparkles,
   Leaf: Leaf,
-  Lightbulb: Lightbulb,
-  Users: Users
+  Users: Users,
+  Shield: Shield
 };
 
 const NosotrosPage = () => {
@@ -34,16 +35,45 @@ const NosotrosPage = () => {
           <div className="max-w-4xl mx-auto px-6">
             <h2 className="text-3xl md:text-4xl font-bold text-biofilia-black mb-8 flex items-center gap-3">
               <span className="w-2 h-10 bg-biofilia-green rounded-full" />
-              {companyHistory.title}
+              {companyInfo.history.title}
             </h2>
             <div className="prose prose-lg text-biofilia-black/80 leading-relaxed">
-              {companyHistory.content.split('\n').map((paragraph, index) => (
+              {companyInfo.history.content.split('\n').map((paragraph, index) => (
                 paragraph.trim() && (
-                  <p key={index} className="mb-4">
+                  <p key={index} className="mb-4 text-justify">
                     {paragraph}
                   </p>
                 )
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Mission & Vision Section */}
+        <section className="py-16 md:py-20 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Mission */}
+              <div className="bg-white p-8 rounded-2xl shadow-sm">
+                <h3 className="text-2xl md:text-3xl font-bold text-biofilia-green mb-6 flex items-center gap-3">
+                  <span className="w-2 h-8 bg-biofilia-green rounded-full" />
+                  {companyInfo.mission.title}
+                </h3>
+                <p className="text-biofilia-black/80 leading-relaxed text-justify">
+                  {companyInfo.mission.content}
+                </p>
+              </div>
+
+              {/* Vision */}
+              <div className="bg-white p-8 rounded-2xl shadow-sm">
+                <h3 className="text-2xl md:text-3xl font-bold text-biofilia-green mb-6 flex items-center gap-3">
+                  <span className="w-2 h-8 bg-biofilia-green rounded-full" />
+                  {companyInfo.vision.title}
+                </h3>
+                <p className="text-biofilia-black/80 leading-relaxed text-justify">
+                  {companyInfo.vision.content}
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -69,7 +99,7 @@ const NosotrosPage = () => {
                     <h3 className="text-xl font-bold text-white mb-3">
                       {value.title}
                     </h3>
-                    <p className="text-white/70 text-sm leading-relaxed">
+                    <p className="text-white/70 text-sm leading-relaxed text-justify">
                       {value.description}
                     </p>
                   </div>
@@ -88,12 +118,13 @@ const NosotrosPage = () => {
             <p className="text-biofilia-black/60 mb-8">
               Contáctanos y hagamos realidad tu proyecto.
             </p>
-            <a 
-              href="/contacta"
-              className="inline-block bg-biofilia-green hover:bg-biofilia-green/90 text-white rounded-lg px-8 py-4 font-semibold transition-all duration-300 hover:scale-105"
+            <Link 
+              to="/contacta"
+              className="inline-flex items-center gap-2 bg-biofilia-green hover:bg-transparent text-white hover:text-biofilia-green px-8 py-4 rounded-lg font-bold transition-all duration-300 hover:scale-105 border-2 border-biofilia-green"
             >
               Contáctanos
-            </a>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </section>
       </main>
