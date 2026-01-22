@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, X } from 'lucide-react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import { services } from '../data/mock';
 
 const ServiciosPage = () => {
+  const [activeService, setActiveService] = useState(null);
+
+  const handleServiceHover = (serviceId) => {
+    setActiveService(serviceId);
+  };
+
+  const handleServiceLeave = () => {
+    setActiveService(null);
+  };
+
+  const closeModal = () => {
+    setActiveService(null);
+  };
+
+  const activeServiceData = services.find(s => s.id === activeService);
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
@@ -20,100 +36,124 @@ const ServiciosPage = () => {
           </div>
         </section>
 
-        {/* Services with Leaf Layout */}
-        <section className="py-16 md:py-24">
+        {/* Services with Icon Layout */}
+        <section className="py-16 md:py-20">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="relative flex items-center justify-center min-h-[600px]">
-              {/* Central Leaf */}
+            <div className="relative flex items-center justify-center min-h-[500px] md:min-h-[600px]">
+              {/* Central Icon */}
               <div className="relative z-10">
                 <img 
-                  src="https://customer-assets.emergentagent.com/job_bbf9e7d9-e7b6-45b5-a13c-7fcbccfcb815/artifacts/n3mufaik_Logos-Biofilia-Cocreativa.png"
-                  alt="Biofilia Leaf"
-                  className="w-64 md:w-80 h-auto"
+                  src="https://customer-assets.emergentagent.com/job_eco-creative-hub/artifacts/du8wllk2_Icon-Biofilia-Cocreativa.png"
+                  alt="Biofilia Icon"
+                  className="w-48 md:w-64 lg:w-80 h-auto"
                 />
               </div>
 
-              {/* Services positioned around leaf */}
+              {/* Services positioned around icon */}
               {/* Left Top - Marketing */}
-              <div className="absolute left-0 md:left-8 top-8 md:top-16 group cursor-pointer">
-                <div className="flex items-center gap-4 md:flex-row-reverse">
+              <div 
+                className="absolute left-0 md:left-4 lg:left-8 top-4 md:top-12 lg:top-16 group cursor-pointer"
+                onMouseEnter={() => handleServiceHover(1)}
+                onClick={() => handleServiceHover(1)}
+              >
+                <div className="flex items-center gap-3 md:gap-4 md:flex-row-reverse">
                   <img 
                     src={services.find(s => s.name === 'Marketing')?.icon}
                     alt="Marketing"
-                    className="service-icon w-12 h-12 md:w-16 md:h-16"
+                    className="service-icon w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16"
                   />
-                  <h3 className="text-xl md:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300">
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300">
                     Marketing
                   </h3>
                 </div>
               </div>
 
               {/* Right Top - Branding */}
-              <div className="absolute right-0 md:right-8 top-8 md:top-16 group cursor-pointer">
-                <div className="flex items-center gap-4">
-                  <h3 className="text-xl md:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300">
+              <div 
+                className="absolute right-0 md:right-4 lg:right-8 top-4 md:top-12 lg:top-16 group cursor-pointer"
+                onMouseEnter={() => handleServiceHover(2)}
+                onClick={() => handleServiceHover(2)}
+              >
+                <div className="flex items-center gap-3 md:gap-4">
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300">
                     Branding
                   </h3>
                   <img 
                     src={services.find(s => s.name === 'Branding')?.icon}
                     alt="Branding"
-                    className="service-icon w-12 h-12 md:w-16 md:h-16"
+                    className="service-icon w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16"
                   />
                 </div>
               </div>
 
               {/* Left Middle - Designing UX/UI */}
-              <div className="absolute left-0 md:left-0 top-1/2 -translate-y-1/2 group cursor-pointer">
-                <div className="flex items-center gap-4 md:flex-row-reverse">
+              <div 
+                className="absolute left-0 md:left-0 top-1/2 -translate-y-1/2 group cursor-pointer"
+                onMouseEnter={() => handleServiceHover(3)}
+                onClick={() => handleServiceHover(3)}
+              >
+                <div className="flex items-center gap-3 md:gap-4 md:flex-row-reverse">
                   <img 
                     src={services.find(s => s.name === 'Designing UX/UI')?.icon}
                     alt="Designing UX/UI"
-                    className="service-icon w-12 h-12 md:w-16 md:h-16"
+                    className="service-icon w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16"
                   />
-                  <h3 className="text-xl md:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300 text-right">
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300 text-right">
                     Designing<br />UX/UI
                   </h3>
                 </div>
               </div>
 
               {/* Right Middle - Printing */}
-              <div className="absolute right-0 md:right-0 top-1/2 -translate-y-1/2 group cursor-pointer">
-                <div className="flex items-center gap-4">
-                  <h3 className="text-xl md:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300">
+              <div 
+                className="absolute right-0 md:right-0 top-1/2 -translate-y-1/2 group cursor-pointer"
+                onMouseEnter={() => handleServiceHover(4)}
+                onClick={() => handleServiceHover(4)}
+              >
+                <div className="flex items-center gap-3 md:gap-4">
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300">
                     Printing
                   </h3>
                   <img 
                     src={services.find(s => s.name === 'Printing')?.icon}
                     alt="Printing"
-                    className="service-icon w-12 h-12 md:w-16 md:h-16"
+                    className="service-icon w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16"
                   />
                 </div>
               </div>
 
               {/* Left Bottom - Packing */}
-              <div className="absolute left-0 md:left-8 bottom-8 md:bottom-16 group cursor-pointer">
-                <div className="flex items-center gap-4 md:flex-row-reverse">
+              <div 
+                className="absolute left-0 md:left-4 lg:left-8 bottom-4 md:bottom-12 lg:bottom-16 group cursor-pointer"
+                onMouseEnter={() => handleServiceHover(5)}
+                onClick={() => handleServiceHover(5)}
+              >
+                <div className="flex items-center gap-3 md:gap-4 md:flex-row-reverse">
                   <img 
                     src={services.find(s => s.name === 'Packing')?.icon}
                     alt="Packing"
-                    className="service-icon w-12 h-12 md:w-16 md:h-16"
+                    className="service-icon w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16"
                   />
-                  <h3 className="text-xl md:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300">
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300">
                     Packing
                   </h3>
                 </div>
               </div>
 
               {/* Right Bottom - Book making */}
-              <div className="absolute right-0 md:right-8 bottom-8 md:bottom-16 group cursor-pointer">
-                <div className="flex items-center gap-4">
-                  <h3 className="text-xl md:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300">
+              <div 
+                className="absolute right-0 md:right-4 lg:right-8 bottom-4 md:bottom-12 lg:bottom-16 group cursor-pointer"
+                onMouseEnter={() => handleServiceHover(6)}
+                onClick={() => handleServiceHover(6)}
+              >
+                <div className="flex items-center gap-3 md:gap-4">
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300">
                     Book making
                   </h3>
                   <img 
                     src={services.find(s => s.name === 'Book making')?.icon}
                     alt="Book making"
-                    className="service-icon w-12 h-12 md:w-16 md:h-16"
+                    className="service-icon w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16"
                   />
                 </div>
               </div>
@@ -121,35 +161,12 @@ const ServiciosPage = () => {
           </div>
         </section>
 
-        {/* Services Grid Detail */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-biofilia-black text-center mb-12">
-              Detalle de Servicios
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service) => (
-                <div 
-                  key={service.id}
-                  className="service-card group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-biofilia-green/30"
-                >
-                  <div className="w-16 h-16 mb-6 flex items-center justify-center">
-                    <img 
-                      src={service.icon} 
-                      alt={service.name}
-                      className="service-icon w-14 h-14 object-contain"
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold text-biofilia-black mb-3 group-hover:text-biofilia-green transition-colors duration-300">
-                    {service.name}
-                  </h3>
-                  <p className="text-biofilia-black/60">
-                    {service.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+        {/* Tagline */}
+        <section className="py-12 border-t border-gray-100">
+          <div className="max-w-4xl mx-auto px-6">
+            <p className="text-lg md:text-xl text-biofilia-black font-medium text-center">
+              En Biofilia Cocreativa, cada proyecto es una oportunidad para cocrear un futuro más verde.
+            </p>
           </div>
         </section>
 
@@ -164,25 +181,62 @@ const ServiciosPage = () => {
             </p>
             <Link
               to="/contacta"
-              className="cta-button inline-flex items-center gap-2 bg-biofilia-green hover:bg-biofilia-green/90 text-white px-10 py-5 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg"
+              className="inline-flex items-center gap-2 bg-biofilia-green hover:bg-transparent text-white hover:text-biofilia-green px-10 py-5 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg border-2 border-biofilia-green"
             >
               Solicitar consultoría creativa
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
         </section>
-
-        {/* Tagline */}
-        <section className="py-12 border-t border-gray-100">
-          <div className="max-w-4xl mx-auto px-6">
-            <p className="text-lg md:text-xl text-biofilia-black font-medium text-center">
-              En Biofilia Cocreativa, cada proyecto es una oportunidad para cocrear un futuro más verde.
-            </p>
-          </div>
-        </section>
       </main>
 
       <Footer />
+
+      {/* Service Detail Modal */}
+      {activeService && activeServiceData && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+          onClick={closeModal}
+        >
+          <div 
+            className="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-8 relative animate-fade-in"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              onClick={closeModal}
+              className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors"
+            >
+              <X className="w-6 h-6 text-biofilia-black" />
+            </button>
+            
+            <div className="flex items-center gap-4 mb-6">
+              <img 
+                src={activeServiceData.icon} 
+                alt={activeServiceData.name}
+                className="w-16 h-16 object-contain"
+              />
+              <h3 className="text-2xl md:text-3xl font-bold text-biofilia-green">
+                {activeServiceData.name}
+              </h3>
+            </div>
+            
+            <p className="text-biofilia-black/80 leading-relaxed text-justify">
+              {activeServiceData.fullDescription}
+            </p>
+            
+            <div className="mt-8">
+              <Link
+                to="/contacta"
+                className="inline-flex items-center gap-2 bg-biofilia-green hover:bg-biofilia-green/90 text-white px-6 py-3 rounded-lg font-bold transition-all duration-300"
+                onClick={closeModal}
+              >
+                Solicitar este servicio
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
