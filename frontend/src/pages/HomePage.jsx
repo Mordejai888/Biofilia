@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ArrowRight, Quote } from 'lucide-react';
 import Header from '../components/layout/Header';
@@ -29,7 +29,7 @@ const HomePage = () => {
       <Header />
       
       <main className="flex-1">
-        {/* Hero Carousel Section */}
+        {/* Hero Carousel Section - Sin texto */}
         <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
           {heroSlides.map((slide, index) => (
             <div
@@ -40,25 +40,9 @@ const HomePage = () => {
             >
               <img
                 src={slide.image}
-                alt={slide.title}
+                alt={`Banner ${index + 1}`}
                 className="w-full h-full object-cover"
               />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/20" />
-              
-              {/* Hero Text */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center px-4">
-                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white italic drop-shadow-2xl">
-                    {slide.title}
-                  </h1>
-                  {slide.titleLine2 && (
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white italic drop-shadow-2xl mt-2">
-                      {slide.titleLine2}
-                    </h1>
-                  )}
-                </div>
-              </div>
             </div>
           ))}
 
@@ -93,9 +77,9 @@ const HomePage = () => {
           <div className="absolute bottom-20 left-1/2 -translate-x-1/2">
             <Link
               to="/contacta"
-              className="cta-button inline-flex items-center gap-2 bg-biofilia-green hover:bg-biofilia-green/90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg"
+              className="inline-flex items-center gap-2 bg-biofilia-green hover:bg-biofilia-green/90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg border-2 border-biofilia-green hover:bg-transparent hover:text-biofilia-green"
             >
-              Solicitar consultoría creativa
+              Únete al cambio
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -120,7 +104,7 @@ const HomePage = () => {
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-biofilia-black mb-6 leading-tight">
                   Creatividad con pasión y propósito
                 </h2>
-                <p className="text-lg text-biofilia-black/70 leading-relaxed">
+                <p className="text-lg text-biofilia-black/70 leading-relaxed text-justify">
                   En Biofilia Cocreativa, transformamos ideas en estrategias emocionales y sostenibles, 
                   uniendo diseño, tecnología y naturaleza para conectar marcas con su audiencia. 
                   Buscamos la innovación en cada campaña.
@@ -146,7 +130,7 @@ const HomePage = () => {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-biofilia-black mb-4">
                 Nuestros Servicios
               </h2>
-              <p className="text-lg text-biofilia-black/60 max-w-3xl mx-auto">
+              <p className="text-lg text-biofilia-black/60 max-w-3xl mx-auto text-justify md:text-center">
                 Nuestro enfoque de "cocreación" implica que no solo somos proveedores, sino socios estratégicos.
               </p>
             </div>
@@ -167,7 +151,7 @@ const HomePage = () => {
                   <h3 className="text-xl font-bold text-biofilia-black mb-3 group-hover:text-biofilia-green transition-colors duration-300">
                     {service.name}
                   </h3>
-                  <p className="text-biofilia-black/60">
+                  <p className="text-biofilia-black/60 text-justify">
                     {service.description}
                   </p>
                 </div>
@@ -194,18 +178,22 @@ const HomePage = () => {
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {valuePropositions.map((prop, index) => (
+              {valuePropositions.map((prop) => (
                 <div 
                   key={prop.id}
                   className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-biofilia-green/50 transition-all duration-300"
                 >
-                  <div className="w-12 h-12 bg-biofilia-green rounded-full flex items-center justify-center mb-6">
-                    <span className="text-white font-bold text-xl">{index + 1}</span>
+                  <div className="w-20 h-20 mb-6 flex items-center justify-center">
+                    <img 
+                      src={prop.icon} 
+                      alt={prop.title}
+                      className="w-16 h-16 object-contain"
+                    />
                   </div>
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
                     {prop.title}
                   </h3>
-                  <p className="text-white/70 leading-relaxed">
+                  <p className="text-white/70 leading-relaxed text-justify">
                     {prop.description}
                   </p>
                 </div>
@@ -226,7 +214,7 @@ const HomePage = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {testimonials.map((testimonial) => (
                 <div 
                   key={testimonial.id}
@@ -234,12 +222,12 @@ const HomePage = () => {
                 >
                   <Quote className="w-10 h-10 text-biofilia-green/20 absolute top-4 right-4" />
                   
-                  {/* Result Badge */}
+                  {/* Service Badge */}
                   <div className="inline-block bg-biofilia-green/10 text-biofilia-green px-4 py-1 rounded-full text-sm font-bold mb-4">
-                    {testimonial.result}
+                    {testimonial.service}
                   </div>
                   
-                  <p className="text-biofilia-black/70 mb-6 italic leading-relaxed">
+                  <p className="text-biofilia-black/70 mb-6 italic leading-relaxed text-justify">
                     "{testimonial.quote}"
                   </p>
                   
@@ -247,7 +235,7 @@ const HomePage = () => {
                     <img 
                       src={testimonial.logo}
                       alt={testimonial.company}
-                      className="w-12 h-12 rounded-full object-cover bg-gray-100"
+                      className="w-12 h-12 rounded-full object-contain bg-gray-100 p-1"
                     />
                     <div>
                       <p className="font-bold text-biofilia-black">
@@ -266,7 +254,7 @@ const HomePage = () => {
             <div className="text-center mt-16">
               <Link
                 to="/contacta"
-                className="cta-button inline-flex items-center gap-2 bg-biofilia-green hover:bg-biofilia-green/90 text-white px-10 py-5 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg"
+                className="inline-flex items-center gap-2 bg-biofilia-green hover:bg-transparent text-white hover:text-biofilia-green px-10 py-5 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg border-2 border-biofilia-green"
               >
                 Solicitar consultoría creativa
                 <ArrowRight className="w-5 h-5" />
