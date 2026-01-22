@@ -1,15 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
-import { portfolioItems, services } from '../data/mock';
+import { portfolioItems, services, clientLogos, partnerLogos } from '../data/mock';
 
 const PortafolioPage = () => {
   const [activeFilter, setActiveFilter] = useState('Todos');
   const categories = ['Todos', ...services.map(s => s.name)];
+  const scrollRef = useRef(null);
 
   const filteredItems = activeFilter === 'Todos' 
     ? portfolioItems 
     : portfolioItems.filter(item => item.category === activeFilter);
+
+  // Auto scroll for client logos
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const scroll = () => {
+      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+        scrollContainer.scrollLeft = 0;
+      } else {
+        scrollContainer.scrollLeft += 1;
+      }
+    };
+
+    const interval = setInterval(scroll, 30);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -49,37 +69,49 @@ const PortafolioPage = () => {
           </div>
         </section>
 
-        {/* Portfolio Grid */}
+        {/* Portfolio Grid - Success Cases Style */}
         <section className="py-12 md:py-16">
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredItems.map((item, index) => (
                 <div
                   key={item.id}
-                  className="group relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/3] cursor-pointer"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100"
                 >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-biofilia-black/90 via-biofilia-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <span className="text-biofilia-green text-sm font-medium mb-2">
+                  {/* Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    {/* Category Badge */}
+                    <span className="absolute top-4 left-4 bg-biofilia-green text-white text-xs font-bold px-3 py-1 rounded-full">
                       {item.category}
                     </span>
-                    <h3 className="text-white text-xl font-bold mb-2">
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-biofilia-black mb-2 group-hover:text-biofilia-green transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-white/80 text-sm">
+                    <p className="text-biofilia-black/60 text-sm mb-4">
                       {item.description}
                     </p>
+                    
+                    {/* Client Info */}
+                    {item.client && (
+                      <div className="pt-4 border-t border-gray-100">
+                        <p className="font-semibold text-biofilia-black">
+                          {item.client}
+                        </p>
+                        <p className="text-sm text-biofilia-black/60">
+                          {item.position}
+                        </p>
+                      </div>
+                    )}
                   </div>
-                  {/* Category Badge */}
-                  <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-biofilia-black text-xs font-medium px-3 py-1 rounded-full">
-                    {item.category}
-                  </span>
                 </div>
               ))}
             </div>
@@ -94,6 +126,59 @@ const PortafolioPage = () => {
           </div>
         </section>
 
+        {/* Client Logos Carousel */}
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-biofilia-black text-center mb-12">
+              Clientes que confían en nosotros
+            </h2>
+            
+            <div 
+              ref={scrollRef}
+              className="flex gap-12 overflow-x-hidden"
+              style={{ scrollBehavior: 'auto' }}
+            >
+              {/* Duplicate logos for infinite scroll effect */}
+              {[...clientLogos, ...clientLogos].map((client, index) => (
+                <div 
+                  key={`${client.id}-${index}`}
+                  className="flex-shrink-0 w-32 h-20 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+                >
+                  <img 
+                    src={client.logo}
+                    alt={client.name}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Partner Logos */}
+        <section className="py-16 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-biofilia-black text-center mb-12">
+              Partners tecnológicos
+            </h2>
+            
+            <div className="flex flex-wrap justify-center gap-12">
+              {partnerLogos.map((partner) => (
+                <div 
+                  key={partner.id}
+                  className="w-28 h-16 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+                >
+                  <img 
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-16 bg-biofilia-green/5">
           <div className="max-w-4xl mx-auto px-6 text-center">
@@ -103,12 +188,13 @@ const PortafolioPage = () => {
             <p className="text-biofilia-black/60 mb-8">
               Contáctanos y hagamos algo increíble juntos.
             </p>
-            <a 
-              href="/contacta"
-              className="inline-block bg-biofilia-green hover:bg-biofilia-green/90 text-white rounded-lg px-8 py-4 font-semibold transition-all duration-300 hover:scale-105"
+            <Link 
+              to="/contacta"
+              className="inline-flex items-center gap-2 bg-biofilia-green hover:bg-transparent text-white hover:text-biofilia-green px-8 py-4 rounded-lg font-bold transition-all duration-300 hover:scale-105 border-2 border-biofilia-green"
             >
               Iniciar proyecto
-            </a>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </section>
       </main>
