@@ -3,42 +3,42 @@
 export const services = [
   {
     id: 1,
-    name: 'Marketing',
+    name: 'Estrategia',
     description: 'Estrategias creativas que conectan tu marca con el mundo de manera sostenible.',
     icon: 'https://customer-assets.emergentagent.com/job_eco-creative-hub/artifacts/9ds44vey_Marketing.svg',
     fullDescription: 'Desarrollamos estrategias de marketing que no solo impulsan tu negocio o marca, sino que también promueven un mensaje de sostenibilidad. Conectamos tu marca con audiencias que valoran la responsabilidad ambiental y las emociones de alto valor, creando campañas que inspiran y generan un impacto positivo. Amamos ayudar a las empresas a prosperar en el mundo del marketing digital; alcanzando nuevas metas y dejar huella en este mundo de constante evolución.'
   },
   {
     id: 2,
-    name: 'Branding',
+    name: 'Marca',
     description: 'Construimos identidades de marca únicas que reflejan tus valores y visión.',
     icon: 'https://customer-assets.emergentagent.com/job_eco-creative-hub/artifacts/u45j3e3x_branding.svg',
     fullDescription: 'En nuestra agencia, creamos identidades que respiran sostenibilidad; construimos desde una marca, logotipos y sistemas visuales completos, tu branding reflejará el compromiso con el planeta y la sostenibilidad, utilizando principios de diseño ecológico para asegurar que tu marca no solo sea memorable, sino también responsable y de impacto en el mundo real.'
   },
   {
     id: 3,
-    name: 'Designing UX/UI',
+    name: 'Diseño UX/UI',
     description: 'Experiencias digitales intuitivas que cautivan a tus usuarios.',
     icon: 'https://customer-assets.emergentagent.com/job_eco-creative-hub/artifacts/9a840u6q_Design_UX_UI.svg',
     fullDescription: 'Creamos sitios totalmente personalizados de acuerdo con las necesidades reales de tu negocio. Desde un sencillo landing page, tiendas en línea, hasta páginas corporativas con funcionalidades únicas, entregamos interfaces UI/UX y SEO con gran rendimiento y soluciones escalables; optimizando la eficiencia energética en el diseño digital.'
   },
   {
     id: 4,
-    name: 'Printing',
+    name: 'Impresión',
     description: 'Impresiones de alta calidad con materiales eco-amigables.',
     icon: 'https://customer-assets.emergentagent.com/job_eco-creative-hub/artifacts/7aixfn6j_Printing.svg',
     fullDescription: 'En colaboración creativa, con nuestra empresa hermana BioPrint, en la creación y oferta de soluciones innovadoras, sostenibles y de calidad para satisfacer las necesidades de comunicación impresa. Hoy es posible imprimir respetando el medio ambiente, eligiendo materiales sostenibles siempre que sea posible minimizando el impacto ambiental; con procesos de impresión offset que buscan la eficiencia y la reducción de residuos para tus materiales impresos.'
   },
   {
     id: 5,
-    name: 'Packing',
+    name: 'Empaque',
     description: 'Packaging sostenible que cuenta la historia de tu producto.',
     icon: 'https://customer-assets.emergentagent.com/job_eco-creative-hub/artifacts/wwnhnunb_Packing.svg',
     fullDescription: 'Creemos que el empaque es una extensión de tu marca y una oportunidad para la innovación sostenible. Diseñamos soluciones de empaque que minimizan el desperdicio, utilizan materiales biodegradables o reciclados, y ofrecen una experiencia de desempaque consciente y respetuosa con el medio ambiente.'
   },
   {
     id: 6,
-    name: 'Book making',
+    name: 'Producción Editorial',
     description: 'Libros y publicaciones diseñados con pasión y creatividad.',
     icon: 'https://customer-assets.emergentagent.com/job_eco-creative-hub/artifacts/3kycqgib_book%20making.svg',
     fullDescription: 'El servicio de edición e impresión de libros; inicia desde la recepción de su idea y textos, llevando su proceso desde corrección y edición de estilo, diseño y formación editorial, corrección ortotipográfica y lectura de pruebas; en el área de gráfica diseñamos: portada, contraportada y solapas, mockup y maquetación de libro, te acompañamos en la creación de libros bellos y responsables, promoviendo el uso de papeles reciclados y procesos de encuadernación sostenibles.'
@@ -70,8 +70,8 @@ export const portfolioItems = [
   {
     id: 1,
     title: 'Snap-on México',
-    category: 'Printing',
-    image: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&q=80',
+    category: 'Impresión',
+    image: '/logos/Impresion-Snapon.jpg',
     description: 'Servicios de impresión y diseño de alta calidad',
     client: 'Omar Beltrán',
     position: 'Gerente de ventas Nacional'
@@ -79,8 +79,8 @@ export const portfolioItems = [
   {
     id: 2,
     title: 'Consegroup',
-    category: 'Designing UX/UI',
-    image: 'https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&q=80',
+    category: 'Diseño UX/UI',
+    image: '/logos/CONSEO.jpg',
     description: 'Rediseño de página web corporativa',
     client: 'Carol Griffi',
     position: 'CEO'
@@ -88,8 +88,8 @@ export const portfolioItems = [
   {
     id: 3,
     title: 'Ferretrade',
-    category: 'Branding',
-    image: '/logos/logo-color.jpg',
+    category: 'Marca',
+    image: '/logos/Brandingferretrade.png',
     description: 'Identidad de marca en nicho competitivo',
     client: 'Soledad Rivera',
     position: 'Fundadora'
@@ -97,26 +97,26 @@ export const portfolioItems = [
   {
     id: 4,
     title: 'Perlas de Sabiduría',
-    category: 'Book making',
-    image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&q=80',
+    category: 'Producción Editorial',
+    image: '/logos/Libro.jpg',
     description: 'Edición y diseño editorial completo',
     client: 'Yehudit Farber',
     position: 'Autora'
   },
   {
     id: 5,
-    title: 'SNA Europe',
-    category: 'Packing',
-    image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=80',
+    title: 'Bahco',
+    category: 'Empaque',
+    image: '/logos/Bahco.jpg',
     description: 'Diseño de empaque para lanzamiento de producto',
     client: 'Ing. Luis A. Arroyo',
     position: 'Sales Manager'
   },
   {
     id: 6,
-    title: 'EcoVerde Campaign',
-    category: 'Marketing',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80',
+    title: 'EcoBranding México',
+    category: 'Estrategia',
+    image: '/logos/Ecobranding_ICON.jpg',
     description: 'Campaña digital de concienciación ambiental',
     client: 'Andrea Montoya',
     position: 'Directora de Marketing'
@@ -173,54 +173,54 @@ export const testimonials = [
     name: 'Omar Beltrán',
     position: 'Gerente de ventas Nacional',
     company: 'Snap-on',
-    service: 'Printing',
+    service: 'Impresión',
     logo: '/logos/snap-on-industrial-logo-new-23.png',
-    quote: 'Sus servicios de impresión y diseño que requerimos son de excelente calidad. El equipo de Biofilia entiende nuestras necesidades y siempre entrega resultados impecables.'
+    quote: 'Sus servicios de impresión y diseño que requerimos son de excelente calidad.'
   },
   {
     id: 2,
     name: 'Carol Griffi',
     position: 'CEO',
     company: 'Consegroup',
-    service: 'Design UX/UI',
-    logo: '/logos/logo.svg',
-    quote: 'Rediseñaron nuestra página web, captaron la idea y concepto que necesitaba. El resultado superó todas nuestras expectativas.'
+    service: 'Diseño UX/UI',
+    logo: '/logos/Brand_CG.jpg',
+    quote: 'Rediseñaron nuestra página web, captaron la idea y concepto que necesitaba.'
   },
   {
     id: 3,
     name: 'Soledad Rivera',
     position: 'Fundadora',
     company: 'Ferretrade',
-    service: 'Branding',
-    logo: '/logos/logo-color.jpg',
-    quote: 'Necesitábamos plasmar nuestra marca en un nicho competitivo. Biofilia logró diferenciarnos con una identidad única y memorable.'
+    service: 'Marca',
+    logo: '/logos/ICONO.svg',
+    quote: 'Necesitábamos plasmar nuestra marca en un nicho competitivo.'
   },
   {
     id: 4,
     name: 'Yehudit Farber',
     position: 'Autora',
-    company: 'Libro Perlas de Sabiduría',
-    service: 'Book Making',
-    logo: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=100&q=80',
-    quote: 'Felicitaciones, desarrollaron la edición y diseño del libro con gran profesionalismo. El resultado final es hermoso.'
+    company: 'Perlas de Sabiduría',
+    service: 'Producción Editorial',
+    logo: '/logos/Libro.jpg',
+    quote: 'Felicitaciones, desarrollaron la edición y diseño del libro.'
   },
   {
     id: 5,
     name: 'Ing. Luis A. Arroyo',
     position: 'Sales Manager',
     company: 'SNA Europe',
-    service: 'Packing',
+    service: 'Empaque',
     logo: '/logos/imgi_3_SNAEuropeLogo.141d0db4.svg',
-    quote: 'Teníamos la urgencia de introducir un producto al mercado y su propuesta de empaque le dio valor a nuestra promoción de lanzamiento, lo felicito el resultado fue increíble.'
+    quote: 'Su propuesta de empaque le dio valor a nuestra promoción de lanzamiento.'
   },
   {
     id: 6,
     name: 'Andrea Montoya',
     position: 'Directora de Marketing',
-    company: 'EcoVerde Solutions',
-    service: 'Marketing',
-    logo: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=100&q=80',
-    quote: 'La estrategia de marketing digital que desarrollaron aumentó nuestra visibilidad y engagement de manera significativa. Su enfoque sostenible resonó perfectamente con nuestra audiencia.'
+    company: 'EcoBranding México',
+    service: 'Estrategia',
+    logo: '/logos/Ecobranding_ICON.jpg',
+    quote: 'La estrategia de marketing digital aumentó nuestra visibilidad significativamente.'
   }
 ];
 
@@ -262,14 +262,16 @@ export const partnerLogos = [
   { id: 3, name: 'Google Partner', logo: '/logos/Google-Partner.png' },
   { id: 4, name: 'HubSpot', logo: '/logos/Hubspot-1024x300.png' },
   { id: 5, name: 'Meta', logo: '/logos/media_1e1d6ce6caa68dfd49689c46528c152d9fdeaad6f.jpg' },
-  { id: 6, name: 'Stripe', logo: '/logos/Stripe_icon.png' }
+  { id: 6, name: 'Stripe', logo: '/logos/Stripe_icon.png' },
+  { id: 7, name: 'NFC', logo: '/logos/NFC.svg' },
+  { id: 8, name: 'Mailchimp', logo: '/logos/mailchimp.svg' }
 ];
 
 export const socialLinks = [
-  { id: 'fb', label: 'FB', icon: 'Facebook', url: 'https://www.facebook.com/BiofiliaCoCreativa/' },
-  { id: 'ig', label: 'IG', icon: 'Instagram', url: '#' },
-  { id: 'wa', label: 'WA', icon: 'MessageCircle', url: '#' },
-  { id: 'ce', label: 'CE', icon: 'Mail', url: '#' }
+  { id: 'fb', label: '', icon: 'Facebook', url: 'https://www.facebook.com/BiofiliaCoCreativa/' },
+  { id: 'ig', label: '', icon: 'Instagram', url: '#' },
+  { id: 'wa', label: '', icon: 'MessageCircle', url: '#' },
+  { id: 'ce', label: '', icon: 'Mail', url: '#' }
 ];
 
 export const footerLinks = {
@@ -279,7 +281,7 @@ export const footerLinks = {
     { label: 'Servicios', path: '/servicios' }
   ],
   legal: [
-    { label: 'Biotaping', path: '#' },
+    { label: 'Biotaping', path: 'https://www.biotaping.com', external: true },
     { label: 'BioPrint', path: '#' },
     { label: 'Política de privacidad', path: '/politica-privacidad' },
     { label: 'Términos de servicio', path: '/terminos-servicio' },
@@ -289,12 +291,14 @@ export const footerLinks = {
 
 export const contactFormFields = {
   services: [
-    { id: 'branding', label: 'Branding' },
-    { id: 'marketing', label: 'Marketing' },
-    { id: 'packing', label: 'Packing' },
-    { id: 'printing', label: 'Printing' },
-    { id: 'uxui', label: 'Designing UX/UI' },
-    { id: 'bookmaking', label: 'Bookmaking' },
+    { id: 'marca', label: 'Marca' },
+    { id: 'estrategia', label: 'Estrategia' },
+    { id: 'empaque', label: 'Empaque' },
+    { id: 'impresion', label: 'Impresión' },
+    { id: 'uxui', label: 'Diseño UX/UI' },
+    { id: 'editorial', label: 'Producción Editorial' },
     { id: 'otro', label: 'Otro' }
   ]
 };
+
+export const contactEmail = 'msalinas@biofilia.com.mx';
