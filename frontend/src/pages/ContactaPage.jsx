@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import { Send } from 'lucide-react';
-import { contactFormFields } from '../data/mock';
+import { contactFormFields, contactEmail } from '../data/mock';
 import { Checkbox } from '../components/ui/checkbox';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
@@ -20,6 +20,7 @@ const ContactaPage = () => {
     servicios: [],
     descripcion: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -39,22 +40,42 @@ const ContactaPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock submission
-    console.log('Form submitted:', formData);
-    toast.success('¡Formulario enviado correctamente! Nos pondremos en contacto pronto.');
-    // Reset form
-    setFormData({
-      nombre: '',
-      email: '',
-      telefono: '',
-      tipoTelefono: '',
-      empresa: '',
-      cargo: '',
-      servicios: [],
-      descripcion: ''
-    });
+    setIsSubmitting(true);
+    
+    try {
+      // Prepare form data for submission
+      const submitData = {
+        ...formData,
+        to: contactEmail, // Hidden email
+        subject: `Nuevo contacto de ${formData.nombre} - ${formData.empresa || 'Sin empresa'}`,
+        services: formData.servicios.join(', ')
+      };
+      
+      console.log('Form submitted:', submitData);
+      
+      // Simulated API call - in production, this would send to backend
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      toast.success('¡Formulario enviado correctamente! Nos pondremos en contacto pronto.');
+      
+      // Reset form
+      setFormData({
+        nombre: '',
+        email: '',
+        telefono: '',
+        tipoTelefono: '',
+        empresa: '',
+        cargo: '',
+        servicios: [],
+        descripcion: ''
+      });
+    } catch (error) {
+      toast.error('Error al enviar el formulario. Por favor, intenta de nuevo.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -193,9 +214,10 @@ const ContactaPage = () => {
             <div className="pt-4">
               <Button
                 type="submit"
-                className="bg-biofilia-green hover:bg-biofilia-green/90 text-white rounded-lg px-8 py-3 font-semibold flex items-center gap-2 transition-all duration-300 hover:scale-105"
+                disabled={isSubmitting}
+                className="bg-biofilia-green hover:bg-biofilia-green/90 text-white rounded-lg px-8 py-3 font-semibold flex items-center gap-2 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Enviar
+                {isSubmitting ? 'Enviando...' : 'Enviar'}
                 <Send className="w-5 h-5" />
               </Button>
             </div>
