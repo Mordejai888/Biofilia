@@ -12,15 +12,21 @@ const ServiciosPage = () => {
     setActiveService(serviceId);
   };
 
-  const handleServiceLeave = () => {
-    setActiveService(null);
-  };
-
   const closeModal = () => {
     setActiveService(null);
   };
 
   const activeServiceData = services.find(s => s.id === activeService);
+
+  // Mapping service names to display positions
+  const servicePositions = {
+    'Estrategia': { position: 'left-top', label: 'Estrategia' },
+    'Marca': { position: 'right-top', label: 'Marca' },
+    'Diseño UX/UI': { position: 'left-middle', label: 'Diseño\nUX/UI' },
+    'Impresión': { position: 'right-middle', label: 'Impresión' },
+    'Empaque': { position: 'left-bottom', label: 'Empaque' },
+    'Producción Editorial': { position: 'right-bottom', label: 'Producción\nEditorial' }
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -50,7 +56,7 @@ const ServiciosPage = () => {
               </div>
 
               {/* Services positioned around icon */}
-              {/* Left Top - Marketing */}
+              {/* Left Top - Estrategia */}
               <div 
                 className="absolute left-0 md:left-4 lg:left-8 top-4 md:top-12 lg:top-16 group cursor-pointer"
                 onMouseEnter={() => handleServiceHover(1)}
@@ -58,17 +64,17 @@ const ServiciosPage = () => {
               >
                 <div className="flex items-center gap-3 md:gap-4 md:flex-row-reverse">
                   <img 
-                    src={services.find(s => s.name === 'Marketing')?.icon}
-                    alt="Marketing"
+                    src={services.find(s => s.name === 'Estrategia')?.icon}
+                    alt="Estrategia"
                     className="service-icon w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16"
                   />
                   <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300">
-                    Marketing
+                    Estrategia
                   </h3>
                 </div>
               </div>
 
-              {/* Right Top - Branding */}
+              {/* Right Top - Marca */}
               <div 
                 className="absolute right-0 md:right-4 lg:right-8 top-4 md:top-12 lg:top-16 group cursor-pointer"
                 onMouseEnter={() => handleServiceHover(2)}
@@ -76,17 +82,17 @@ const ServiciosPage = () => {
               >
                 <div className="flex items-center gap-3 md:gap-4">
                   <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300">
-                    Branding
+                    Marca
                   </h3>
                   <img 
-                    src={services.find(s => s.name === 'Branding')?.icon}
-                    alt="Branding"
+                    src={services.find(s => s.name === 'Marca')?.icon}
+                    alt="Marca"
                     className="service-icon w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16"
                   />
                 </div>
               </div>
 
-              {/* Left Middle - Designing UX/UI */}
+              {/* Left Middle - Diseño UX/UI */}
               <div 
                 className="absolute left-0 md:left-0 top-1/2 -translate-y-1/2 group cursor-pointer"
                 onMouseEnter={() => handleServiceHover(3)}
@@ -94,17 +100,17 @@ const ServiciosPage = () => {
               >
                 <div className="flex items-center gap-3 md:gap-4 md:flex-row-reverse">
                   <img 
-                    src={services.find(s => s.name === 'Designing UX/UI')?.icon}
-                    alt="Designing UX/UI"
+                    src={services.find(s => s.name === 'Diseño UX/UI')?.icon}
+                    alt="Diseño UX/UI"
                     className="service-icon w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16"
                   />
                   <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300 text-right">
-                    Designing<br />UX/UI
+                    Diseño<br />UX/UI
                   </h3>
                 </div>
               </div>
 
-              {/* Right Middle - Printing */}
+              {/* Right Middle - Impresión */}
               <div 
                 className="absolute right-0 md:right-0 top-1/2 -translate-y-1/2 group cursor-pointer"
                 onMouseEnter={() => handleServiceHover(4)}
@@ -112,17 +118,17 @@ const ServiciosPage = () => {
               >
                 <div className="flex items-center gap-3 md:gap-4">
                   <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300">
-                    Printing
+                    Impresión
                   </h3>
                   <img 
-                    src={services.find(s => s.name === 'Printing')?.icon}
-                    alt="Printing"
+                    src={services.find(s => s.name === 'Impresión')?.icon}
+                    alt="Impresión"
                     className="service-icon w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16"
                   />
                 </div>
               </div>
 
-              {/* Left Bottom - Packing */}
+              {/* Left Bottom - Empaque */}
               <div 
                 className="absolute left-0 md:left-4 lg:left-8 bottom-4 md:bottom-12 lg:bottom-16 group cursor-pointer"
                 onMouseEnter={() => handleServiceHover(5)}
@@ -130,29 +136,29 @@ const ServiciosPage = () => {
               >
                 <div className="flex items-center gap-3 md:gap-4 md:flex-row-reverse">
                   <img 
-                    src={services.find(s => s.name === 'Packing')?.icon}
-                    alt="Packing"
+                    src={services.find(s => s.name === 'Empaque')?.icon}
+                    alt="Empaque"
                     className="service-icon w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16"
                   />
                   <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300">
-                    Packing
+                    Empaque
                   </h3>
                 </div>
               </div>
 
-              {/* Right Bottom - Book making */}
+              {/* Right Bottom - Producción Editorial */}
               <div 
                 className="absolute right-0 md:right-4 lg:right-8 bottom-4 md:bottom-12 lg:bottom-16 group cursor-pointer"
                 onMouseEnter={() => handleServiceHover(6)}
                 onClick={() => handleServiceHover(6)}
               >
                 <div className="flex items-center gap-3 md:gap-4">
-                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300">
-                    Book making
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-biofilia-black group-hover:text-biofilia-green transition-colors duration-300 text-left">
+                    Producción<br />Editorial
                   </h3>
                   <img 
-                    src={services.find(s => s.name === 'Book making')?.icon}
-                    alt="Book making"
+                    src={services.find(s => s.name === 'Producción Editorial')?.icon}
+                    alt="Producción Editorial"
                     className="service-icon w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16"
                   />
                 </div>
