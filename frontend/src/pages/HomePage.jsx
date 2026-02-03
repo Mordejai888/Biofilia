@@ -29,7 +29,7 @@ const HomePage = () => {
       <Header />
       
       <main className="flex-1">
-        {/* Hero Carousel Section - Sin texto */}
+        {/* Hero Carousel Section */}
         <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
           {heroSlides.map((slide, index) => (
             <div
@@ -202,59 +202,62 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Casos de Éxito / Testimonios Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-biofilia-black mb-4">
+        {/* Casos de Éxito / Testimonios Section - Rediseñado */}
+        <section className="py-16 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-biofilia-black mb-3">
                 Casos de éxito
               </h2>
-              <p className="text-lg text-biofilia-black/60">
+              <p className="text-biofilia-black/60">
                 Resultados que hablan por sí solos
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {testimonials.map((testimonial) => (
                 <div 
                   key={testimonial.id}
-                  className="testimonial-card relative"
+                  className="bg-gray-50 rounded-xl p-5 hover:shadow-lg transition-all duration-300 border border-gray-100"
                 >
-                  <Quote className="w-10 h-10 text-biofilia-green/20 absolute top-4 right-4" />
-                  
-                  {/* Service Badge */}
-                  <div className="inline-block bg-biofilia-green/10 text-biofilia-green px-4 py-1 rounded-full text-sm font-bold mb-4">
-                    {testimonial.service}
-                  </div>
-                  
-                  <p className="text-biofilia-black/70 mb-6 italic leading-relaxed text-justify">
-                    "{testimonial.quote}"
-                  </p>
-                  
-                  <div className="flex items-center gap-4 pt-4 border-t border-gray-100">
+                  {/* Header con logo y info */}
+                  <div className="flex items-center gap-3 mb-4">
                     <img 
                       src={testimonial.logo}
                       alt={testimonial.company}
-                      className="w-12 h-12 rounded-full object-contain bg-gray-100 p-1"
+                      className="w-12 h-12 rounded-lg object-contain bg-white p-1 border border-gray-200"
                     />
-                    <div>
-                      <p className="font-bold text-biofilia-black">
+                    <div className="flex-1 min-w-0">
+                      <p className="font-bold text-biofilia-black text-sm truncate">
                         {testimonial.name}
                       </p>
-                      <p className="text-sm text-biofilia-black/60">
-                        {testimonial.position}, {testimonial.company}
+                      <p className="text-xs text-biofilia-black/60 truncate">
+                        {testimonial.position}
+                      </p>
+                      <p className="text-xs text-biofilia-green font-medium truncate">
+                        {testimonial.company}
                       </p>
                     </div>
                   </div>
+                  
+                  {/* Service Badge */}
+                  <span className="inline-block bg-biofilia-green/10 text-biofilia-green px-3 py-1 rounded-full text-xs font-semibold mb-3">
+                    {testimonial.service}
+                  </span>
+                  
+                  {/* Quote */}
+                  <p className="text-biofilia-black/70 text-sm leading-relaxed">
+                    "{testimonial.quote}"
+                  </p>
                 </div>
               ))}
             </div>
 
             {/* CTA Button */}
-            <div className="text-center mt-16">
+            <div className="text-center mt-12">
               <Link
                 to="/contacta"
-                className="inline-flex items-center gap-2 bg-biofilia-green hover:bg-transparent text-white hover:text-biofilia-green px-10 py-5 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg border-2 border-biofilia-green"
+                className="inline-flex items-center gap-2 bg-biofilia-green hover:bg-transparent text-white hover:text-biofilia-green px-8 py-4 rounded-lg font-bold transition-all duration-300 hover:scale-105 shadow-lg border-2 border-biofilia-green"
               >
                 Solicitar consultoría creativa
                 <ArrowRight className="w-5 h-5" />
@@ -264,7 +267,7 @@ const HomePage = () => {
         </section>
 
         {/* Tagline Section */}
-        <section className="py-16 bg-biofilia-green/5 border-t border-biofilia-green/10">
+        <section className="py-12 bg-biofilia-green/5 border-t border-biofilia-green/10">
           <div className="max-w-4xl mx-auto px-6 text-center">
             <p className="text-xl md:text-2xl text-biofilia-black font-medium">
               En <span className="text-biofilia-green font-bold">Biofilia Cocreativa</span>, 
