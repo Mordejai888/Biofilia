@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.d90664a8.css",
-    "main.js": "/static/js/main.6e148568.js",
+    "main.js": "/static/js/main.2458eb78.js",
     "static/media/neulis-sans-medium.otf": "/static/media/neulis-sans-medium.90ad3f601132c14b6503.otf",
     "static/media/neulis-sans-bold.otf": "/static/media/neulis-sans-bold.1e010966c9ca4dd53a21.otf",
     "static/media/neulis-sans-light.otf": "/static/media/neulis-sans-light.6ea236be6c8e9543910b.otf",
@@ -14,10 +14,10 @@
     "static/media/neulis-sans-hairline.otf": "/static/media/neulis-sans-hairline.1cc1ba86076903baf8f4.otf",
     "index.html": "/index.html",
     "main.d90664a8.css.map": "/static/css/main.d90664a8.css.map",
-    "main.6e148568.js.map": "/static/js/main.6e148568.js.map"
+    "main.2458eb78.js.map": "/static/js/main.2458eb78.js.map"
   },
   "entrypoints": [
     "static/css/main.d90664a8.css",
-    "static/js/main.6e148568.js"
+    "static/js/main.2458eb78.js"
   ]
 }
