@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e0499c72.css",
+    "main.js": "/static/js/main.ef3e3750.js",
+    "static/media/neulis-sans-medium.otf": "/static/media/neulis-sans-medium.90ad3f601132c14b6503.otf",
+    "static/media/neulis-sans-bold.otf": "/static/media/neulis-sans-bold.1e010966c9ca4dd53a21.otf",
+    "static/media/neulis-sans-light.otf": "/static/media/neulis-sans-light.6ea236be6c8e9543910b.otf",
+    "static/media/neulis-sans-extrabold.otf": "/static/media/neulis-sans-extrabold.e8d179c311dedbb6b049.otf",
+    "static/media/neulis-sans-semibold.otf": "/static/media/neulis-sans-semibold.06acffe83fc7c017f637.otf",
+    "static/media/neulis-sans-extralight.otf": "/static/media/neulis-sans-extralight.3250a4ba7d31a4529dfb.otf",
+    "static/media/neulis-sans.otf": "/static/media/neulis-sans.1f2390ea6d6278bd15db.otf",
+    "static/media/neulis-sans-thin.otf": "/static/media/neulis-sans-thin.7b939a7c6ffb93317593.otf",
+    "static/media/neulis-sans-black.otf": "/static/media/neulis-sans-black.8778aeb90bb7044da163.otf",
+    "static/media/neulis-sans-hairline.otf": "/static/media/neulis-sans-hairline.1cc1ba86076903baf8f4.otf",
+    "index.html": "/index.html",
+    "main.e0499c72.css.map": "/static/css/main.e0499c72.css.map",
+    "main.ef3e3750.js.map": "/static/js/main.ef3e3750.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e0499c72.css",
+    "static/js/main.ef3e3750.js"
+  ]
+}
