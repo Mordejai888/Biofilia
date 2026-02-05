@@ -40,6 +40,81 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+class ContactForm(BaseModel):
+    nombre: str
+    email: EmailStr
+    telefono: Optional[str] = ""
+    tipoTelefono: Optional[str] = ""
+    empresa: Optional[str] = ""
+    cargo: Optional[str] = ""
+    servicios: List[str] = []
+    descripcion: Optional[str] = ""
+
+def send_email(form_data: ContactForm):
+    """Send email using SMTP"""
+    smtp_host = os.environ.get('SMTP_HOST')
+    smtp_port = int(os.environ.get('SMTP_PORT', 465))
+    smtp_user = os.environ.get('SMTP_USER')
+    smtp_password = os.environ.get('SMTP_PASSWORD')
+    contact_email = os.environ.get('CONTACT_EMAIL')
+    
+    # Create message
+    msg = MIMEMultipart('alternative')
+    msg['Subject'] = f"Nuevo contacto de {form_data.nombre} - {form_data.empresa or 'Sin empresa'}"
+    msg['From'] = smtp_user
+    msg['To'] = contact_email
+    
+    # Create HTML body
+    servicios_text = ", ".join(form_data.servicios) if form_data.servicios else "No especificado"
+    
+    html = f"""
+    <html>
+    <body style="font-family: Arial, sans-serif; padding: 20px;">
+        <h2 style="color: #3dae2b;">Nuevo mensaje de contacto - Biofilia CoCreativa</h2>
+        <table style="border-collapse: collapse; width: 100%; max-width: 600px;">
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Nombre:</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">{form_data.nombre}</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Email:</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">{form_data.email}</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Teléfono:</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">{form_data.telefono or 'No proporcionado'} ({form_data.tipoTelefono or 'N/A'})</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Empresa:</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">{form_data.empresa or 'No proporcionada'}</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Cargo:</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">{form_data.cargo or 'No proporcionado'}</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Servicios de interés:</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">{servicios_text}</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Descripción del proyecto:</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">{form_data.descripcion or 'No proporcionada'}</td>
+            </tr>
+        </table>
+        <p style="color: #666; font-size: 12px; margin-top: 20px;">
+            Este mensaje fue enviado desde el formulario de contacto de biofilia.com.mx
+        </p>
+    </body>
+    </html>
+    """
+    
+    msg.attach(MIMEText(html, 'html'))
+    
+    # Send email
+    with smtplib.SMTP_SSL(smtp_host, smtp_port) as server:
+        server.login(smtp_user, smtp_password)
+        server.sendmail(smtp_user, contact_email, msg.as_string())
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
