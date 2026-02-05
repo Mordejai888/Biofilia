@@ -45,18 +45,20 @@ const ContactaPage = () => {
     setIsSubmitting(true);
     
     try {
-      // Prepare form data for submission
-      const submitData = {
-        ...formData,
-        to: contactEmail, // Hidden email
-        subject: `Nuevo contacto de ${formData.nombre} - ${formData.empresa || 'Sin empresa'}`,
-        services: formData.servicios.join(', ')
-      };
+      const API_URL = process.env.REACT_APP_BACKEND_URL || '';
       
-      console.log('Form submitted:', submitData);
+      const response = await fetch(`${API_URL}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
       
-      // Simulated API call - in production, this would send to backend
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.detail || 'Error al enviar');
+      }
       
       toast.success('¡Formulario enviado correctamente! Nos pondremos en contacto pronto.');
       
@@ -72,11 +74,13 @@ const ContactaPage = () => {
         descripcion: ''
       });
     } catch (error) {
+      console.error('Contact form error:', error);
       toast.error('Error al enviar el formulario. Por favor, intenta de nuevo.');
     } finally {
       setIsSubmitting(false);
     }
   };
+
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
