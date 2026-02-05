@@ -45,9 +45,11 @@ const ContactaPage = () => {
     setIsSubmitting(true);
     
     try {
-      const API_URL = process.env.REACT_APP_BACKEND_URL || '';
+      // Use PHP endpoint for Hostinger, or backend API for development
+      const isProduction = !process.env.REACT_APP_BACKEND_URL || window.location.hostname !== 'localhost';
+      const API_URL = isProduction ? '/api/contact.php' : `${process.env.REACT_APP_BACKEND_URL}/api/contact`;
       
-      const response = await fetch(`${API_URL}/api/contact`, {
+      const response = await fetch(API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -55,9 +57,10 @@ const ContactaPage = () => {
         body: JSON.stringify(formData),
       });
       
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.detail || 'Error al enviar');
+      const result = await response.json();
+      
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Error al enviar');
       }
       
       toast.success('¡Formulario enviado correctamente! Nos pondremos en contacto pronto.');
