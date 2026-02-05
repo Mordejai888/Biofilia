@@ -120,6 +120,17 @@ def send_email(form_data: ContactForm):
 async def root():
     return {"message": "Hello World"}
 
+@api_router.post("/contact")
+async def send_contact_form(form_data: ContactForm):
+    """Handle contact form submission and send email"""
+    try:
+        send_email(form_data)
+        logger.info(f"Contact email sent successfully from {form_data.email}")
+        return {"success": True, "message": "Mensaje enviado correctamente"}
+    except Exception as e:
+        logger.error(f"Failed to send contact email: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error al enviar el mensaje: {str(e)}")
+
 @api_router.post("/status", response_model=StatusCheck)
 async def create_status_check(input: StatusCheckCreate):
     status_dict = input.model_dump()
