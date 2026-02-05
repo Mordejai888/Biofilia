@@ -269,9 +269,9 @@ export const partnerLogos = [
 
 export const socialLinks = [
   { id: 'fb', label: '', icon: 'Facebook', url: 'https://www.facebook.com/BiofiliaCoCreativa/' },
-  { id: 'ig', label: '', icon: 'Instagram', url: '#' },
+  { id: 'ig', label: '', icon: 'Instagram', url: 'https://www.instagram.com/biofiliacocreativa/' },
   { id: 'wa', label: '', icon: 'MessageCircle', url: '#' },
-  { id: 'ce', label: '', icon: 'Mail', url: '#' }
+  { id: 'ce', label: '', icon: 'Mail', url: 'mailto:msalinas@biofilia.com.mx' }
 ];
 
 export const footerLinks = {
