@@ -20,6 +20,19 @@ const Footer = () => {
           <div className="flex items-center gap-4">
             {socialLinks.map((social) => {
               const IconComponent = iconMap[social.icon];
+              
+              if (social.internal) {
+                return (
+                  <Link
+                    key={social.id}
+                    to={social.url}
+                    className="w-10 h-10 flex items-center justify-center rounded-full bg-biofilia-green/10 text-biofilia-green hover:bg-biofilia-green hover:text-white transition-all duration-300"
+                  >
+                    <IconComponent className="w-5 h-5" />
+                  </Link>
+                );
+              }
+              
               return (
                 <a
                   key={social.id}
